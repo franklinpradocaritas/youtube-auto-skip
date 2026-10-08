@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>YouTube Auto Skip</title>
+        <link rel="stylesheet" href="popup.css" />
+    </head>
+    <body>
+        <header>
+            <span class="mark" aria-hidden="true">▶</span>
+            <div>
+                <h1>YouTube Auto Skip</h1>
+                <p>Debugger controls</p>
+            </div>
+        </header>
+        <main>
+            <div class="control-row">
+                <label for="enabled"
+                    >* ENABLE <span id="status">OFF</span></label
+                >
+                <input
+                    id="enabled"
+                    type="checkbox"
+                    role="switch"
+                    aria-label="Enable auto skip"
+                    disabled
+                />
+            </div>
+            <section>
+                <div class="control-row">
+                    <label for="show-ribbon"
+                        >Show ribbon <span id="ribbon-status">ON</span></label
+                    >
+                    <input
+                        id="show-ribbon"
+                        type="checkbox"
+                        role="switch"
+                        aria-label="Show ribbon"
+                        checked
+                        disabled
+                    />
+                </div>
+            </section>
+            <section>
+                <div class="control-row">
+                    <label for="opacity">Ribbon opacity</label
+                    ><output id="opacity-value" for="opacity">80%</output>
+                </div>
+                <input
+                    id="opacity"
+                    type="range"
+                    min="20"
+                    max="100"
+                    step="1"
+                    value="80"
+                    disabled
+                />
+                <div class="limits"><span>20%</span><span>100%</span></div>
+            </section>
+            <!--/* <p class="note">
+                Settings apply to this YouTube tab. The ribbon appears when both
+                auto skip and Show ribbon are ON.
+            </p> */-->
+            <p id="feedback" role="status" aria-live="polite">Loading…</p>
+        </main>
+        <script src="popup.js"></script>
+    </body>
+</html>

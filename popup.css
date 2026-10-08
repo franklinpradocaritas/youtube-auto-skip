@@ -1,0 +1,124 @@
+/* Keep popup styles separate from YouTube and from the ribbon's Shadow DOM. */
+:root {
+    color-scheme: dark;
+    font:
+        14px/1.5 system-ui,
+        sans-serif;
+    background: #111020;
+    color: #f5f3ff;
+}
+body {
+    width: 320px;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 22px;
+}
+.mark {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: #7c3aed;
+    color: white;
+}
+h1 {
+    font-size: 18px;
+    margin: 0;
+    letter-spacing: -0.4px;
+}
+header p {
+    margin: 0;
+    color: #a5a0b8;
+    font-size: 12px;
+}
+.control-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+label {
+    font-weight: 600;
+}
+#status,
+#ribbon-status {
+    margin-left: 6px;
+    font-size: 11px;
+    color: #c4b5fd;
+}
+input[role='switch'] {
+    appearance: none;
+    width: 44px;
+    height: 26px;
+    border-radius: 20px;
+    background: #475569;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+input[role='switch']::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 3px;
+    top: 3px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 0.2s;
+}
+input[role='switch']:checked {
+    background: #7c3aed;
+}
+input[role='switch']:checked::before {
+    transform: translateX(18px);
+}
+input:focus-visible {
+    outline: 2px solid #c4b5fd;
+    outline-offset: 4px;
+}
+input:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+section {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid #302942;
+}
+output {
+    font-variant-numeric: tabular-nums;
+    color: #c4b5fd;
+    font-weight: 700;
+}
+#opacity {
+    width: 100%;
+    margin: 14px 0 2px;
+    accent-color: #a78bfa;
+    cursor: pointer;
+}
+.limits {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #9992b0;
+}
+.note {
+    font-size: 12px;
+    color: #a5a0b8;
+    margin: 18px 0 0;
+}
+#feedback {
+    font-size: 12px;
+    color: #c4b5fd;
+    min-height: 18px;
+    margin: 10px 0 0;
+}
