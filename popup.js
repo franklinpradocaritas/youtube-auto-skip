@@ -11,6 +11,49 @@ let tabId;
 let pending = Promise.resolve();
 let latestRequest = 0;
 
+const platformHelp = {
+    macos: {
+        command: 'open -a "Google Chrome" --args --silent-debugger-extension-api',
+        message: "On macOS, launch Google Chrome from Terminal with this command to silence the debugger warning:",
+    },
+    win: {
+        command: '"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" --silent-debugger-extension-api',
+        message: "On Windows, launch Google Chrome from Command Prompt with this command to silence the debugger warning:",
+    },
+    linux: {
+        command: "google-chrome --silent-debugger-extension-api",
+        message: "On Linux, launch Google Chrome from a terminal with this command to silence the debugger warning:",
+    },
+};
+const platformButtons = document.querySelectorAll("[data-platform]");
+
+function selectPlatform(platform) {
+    const help = platformHelp[platform];
+    document.querySelector("#debugger-command").textContent = help.command;
+    document.querySelector("#debugger-instructions").textContent = help.message;
+    document.querySelector("#copy-feedback").textContent = "";
+    platformButtons.forEach(button => {
+        button.setAttribute("aria-pressed", String(button.dataset.platform === platform));
+    });
+}
+
+platformButtons.forEach(button => {
+    button.addEventListener("click", () => selectPlatform(button.dataset.platform));
+});
+
+const systemPlatform = navigator.userAgentData?.platform || navigator.platform || navigator.userAgent;
+selectPlatform(/win/i.test(systemPlatform) ? "win" : /mac/i.test(systemPlatform) ? "macos" : "linux");
+
+document.querySelector("#copy-command").addEventListener("click", async () => {
+    const copyFeedback = document.querySelector("#copy-feedback");
+    try {
+        await navigator.clipboard.writeText(document.querySelector("#debugger-command").textContent);
+        copyFeedback.textContent = "Command copied.";
+    } catch {
+        copyFeedback.textContent = "Could not copy. Select and copy the command manually.";
+    }
+});
+
 function render(settings) {
     toggle.checked = settings.enabled;
     ribbonToggle.checked = settings.showRibbon;

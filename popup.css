@@ -122,3 +122,115 @@ output {
     min-height: 18px;
     margin: 10px 0 0;
 }
+.debugger-info {
+    margin-top: 16px;
+    padding: 14px;
+    border: 1px solid #44365e;
+    border-radius: 12px;
+    background: #1b162c;
+}
+.debugger-info summary {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #ede9fe;
+}
+.debugger-info p {
+    margin: 8px 0 12px;
+    font-size: 12px;
+    color: #c4bdd6;
+}
+.debugger-info pre {
+    margin: 0;
+    padding: 10px;
+    border-radius: 6px;
+    background: #111020;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    user-select: text;
+    min-width: 0;
+    flex: 1;
+}
+.command-block {
+    display: flex;
+    align-items: flex-start;
+    background: #111020;
+    border-radius: 6px;
+}
+#copy-command {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: #ddd6fe;
+    cursor: pointer;
+}
+#copy-command:hover {
+    background: #302942;
+}
+#copy-command:focus-visible {
+    outline: 2px solid #c4b5fd;
+    outline-offset: 2px;
+}
+.debugger-info #copy-feedback {
+    margin: 6px 0 0;
+    color: #c4b5fd;
+}
+#copy-feedback:empty {
+    display: none;
+}
+.debugger-info code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #ddd6fe;
+}
+
+
+.debugger-info summary {
+    cursor: pointer;
+}
+.debugger-info summary:focus-visible,
+.platform-selector button:focus-visible {
+    outline: 2px solid #c4b5fd;
+    outline-offset: 3px;
+}
+.platform-selector {
+    display: flex;
+    gap: 6px;
+    margin-top: 14px;
+}
+.platform-selector button {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 4px;
+    border: 1px solid #44365e;
+    border-radius: 6px;
+    background: transparent;
+    color: #c4bdd6;
+    font: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+.platform-selector button:hover {
+    background: #302942;
+}
+.platform-selector button[aria-pressed="true"] {
+    background: #443065;
+    border-color: #a78bfa;
+    color: #f5f3ff;
+}
+.platform-selector svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}

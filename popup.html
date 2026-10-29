@@ -63,6 +63,37 @@
                 auto skip and Show ribbon are ON.
             </p> */-->
             <p id="feedback" role="status" aria-live="polite">Loading…</p>
+            <details class="debugger-info">
+                <summary>Silence the debugger warning</summary>
+                <div class="platform-selector" role="group" aria-label="Operating system">
+                    <button type="button" data-platform="macos" aria-pressed="true" title="macOS">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.8 12.7c0-2 1.6-3 1.7-3.1-1-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.3.7-2.9.7-.6 0-1.5-.7-2.5-.7-1.3 0-2.5.8-3.2 1.9-1.4 2.4-.4 6 1 8 .7 1 1.4 2 2.4 1.9 1-.1 1.4-.6 2.6-.6s1.6.6 2.6.6c1.1 0 1.7-1 2.4-1.9.8-1.1 1.1-2.2 1.1-2.3-.1 0-2.3-.9-2.3-2.9ZM14.8 6.6c.6-.8 1.1-1.8 1-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.2 1.8-1 2.8 1 .1 2.1-.5 2.7-1.3Z"/></svg>
+                        <span>macOS</span>
+                    </button>
+                    <button type="button" data-platform="win" aria-pressed="false" title="Windows">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m3 5 8-1v7H3V5Zm10-1.3L21 2v9h-8V3.7ZM3 13h8v7l-8-1v-6Zm10 0h8v9l-8-1.7V13Z"/></svg>
+                        <span>Windows</span>
+                    </button>
+                    <button type="button" data-platform="linux" aria-pressed="false" title="Linux">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 10V7a4 4 0 0 1 8 0v3c0 2 3 4 3 7 0 2-3 4-7 4s-7-2-7-4c0-3 3-5 3-7Z"/><path d="m10 10 2 2 2-2-2-1-2 1ZM9 14c-1 2-1 4 0 5m6-5c1 2 1 4 0 5M5 18l-2 3h5m11-3 2 3h-5"/><circle cx="10.5" cy="7" r=".5"/><circle cx="13.5" cy="7" r=".5"/></svg>
+                        <span>Linux</span>
+                    </button>
+                </div>
+                <p id="debugger-instructions" aria-live="polite">
+                    On macOS, launch Google Chrome from Terminal with this
+                    command to silence the debugger warning:
+                </p>
+                <div class="command-block">
+                    <pre><code id="debugger-command">open -a "Google Chrome" --args --silent-debugger-extension-api</code></pre>
+                    <button id="copy-command" type="button" aria-label="Copy command" title="Copy command">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="9" y="9" width="12" height="12" rx="2" />
+                            <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" />
+                        </svg>
+                    </button>
+                </div>
+                <p id="copy-feedback" role="status" aria-live="polite"></p>
+            </details>
         </main>
         <script src="popup.js"></script>
     </body>
